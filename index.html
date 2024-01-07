@@ -1,0 +1,127 @@
+<!--bootstrap-->
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    </head>
+    <!-- ここからHTMLを記述してください。 -->
+    <body>
+        <div class="text-center bg-secondary">
+            <h1 class="text-white">Build Your Own PC</h1>
+        </div>
+        <div class="bg-light" id="parent" >
+            <div class="my-3">
+                <h5>step1 : Select your CPU</h5>
+            </div>
+            <div class="row d-flex my-3">
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Brand </h5>
+                    <select class="mx-2 p-1 form-select" id="cpuBrand" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                        <option value="Intel">Intel</option>
+                        <option value="AMD">AMD</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Model </h5>
+                    <select class="mx-2 p-1 form-select" id="cpuModel" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                    </select>
+                </div>          
+            </div>
+            <div class="my-3">
+                <h5>step2 : Select your GPU</h5>
+            </div>
+            <div class="row d-flex my-3">
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Brand </h5>
+                    <select class="mx-2 p-1 form-select" id="gpuBrand" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                        <option value="Nvidia">Nvidia</option>
+                        <option value="AMD">AMD</option>
+                        <option value="Zotac">Zotac</option>
+                        <option value="Asus">Asus</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Gigabyte">Gigabyte</option>
+                        <option value="Sapphire">Sapphire</option>
+                        <option value="PowerColor">PowerColor</option>
+                        <option value="XFX">XFX</option>
+                        <option value="ASRock">ASRock</option>
+                        <option value="Gainward">Gainward</option>
+                        <option value="PNY">PNY</option>
+                        <option value="PwrHis">PwrHis</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Model </h5>
+                    <select class="mx-2 p-1 form-select" id="gpuModel" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                    </select>
+                </div>          
+            </div>
+            <div class="my-3">
+                <h5>step3 : Select your Memory Card</h5>
+            </div>
+            <div class="row d-flex my-3">
+                <div class="my-2 d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 ">
+                    <h5>How many ? </h5>
+                    <select class="mx-2 p-1 form-select" id="ramCount" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                        <option value="1x">1</option>
+                        <option value="2x">2</option>
+                        <option value="3x">3</option>
+                        <option value="4x">4</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Brand </h5>
+                    <select class="mx-2 p-1 form-select" id="ramBrand" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                        <option value="G.SKILL">G.SKILL</option>
+                        <option value="Crucial">Crucial</option>
+                        <option value="Corsair">Corsair</option>
+                        <option value="HyperX">HyperX</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Model </h5>
+                    <select class="mx-2 p-1 form-select" id="ramModel" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                    </select>
+                </div>          
+            </div>
+            <div class="my-3">
+                <h5>step4 : Select your Storage</h5>
+            </div>
+            <div class="row d-flex my-3">
+                <div class="my-2 d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>HDD or SSD ? </h5>
+                    <select class="mx-2 p-1 form-select" id="storageType" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                        <option value="hdd">HDD</option>
+                        <option value="ssd">SSD</option>
+                    </select>
+                </div>
+                <div class="my-2 d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Storage </h5>
+                    <select class="mx-2 p-1 form-select" id="storageSize" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Brand </h5>
+                    <select class="mx-2 p-1 form-select" id="storageBrand" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                    </select>
+                </div>   
+                <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start col-12 col-sm-6">
+                    <h5>Model </h5>
+                    <select class="mx-2 p-1 form-select" id="storageModel" aria-label="Default select example">
+                        <option selected value="">Open this select menu</option>
+                    </select>
+                </div>          
+            </div>
+            <div class="text-center">
+                <button type="button" id="addButton" class="btn btn-primary text-white my-5">Add PC</button>
+            </div>
+        </div>
+        <script src="caliculate.js" async></script>
+    </body>
