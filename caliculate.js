@@ -10,8 +10,9 @@ config = {
 let parent = document.getElementById("parent");
 
 
-function getModel(partsType, partsUrl){
+function getModel(partsType){
     let brand = document.getElementById(partsType+"Brand");
+    let partsUrl = config.url + "?type=" + partsType;
     let modelSet = new Set();
     fetch(partsUrl).then(response=>response.json()).then(function(allParts){
         for(eachPart of allParts){
@@ -41,7 +42,7 @@ let cpuBrand = document.getElementById("cpuBrand");
 let cpuModel = document.getElementById("cpuModel");
 let cpuUrl = config.url + "?type=cpu";
 cpuBrand.addEventListener("change", function(){
-    getModel("cpu", config.cpuUrl);
+    getModel("cpu");
 })
 // cpuBrand.addEventListener("change", function(){
 //     let cpuModelSet = new Set();
@@ -71,7 +72,7 @@ let gpuBrand = document.getElementById("gpuBrand");
 let gpuModel = document.getElementById("gpuModel");
 let gpuUrl = config.url + "?type=gpu";
 gpuBrand.addEventListener("change", function(){
-    getModel("gpu", config.gpuUrl);
+    getModel("gpu");
     // let gpuModelSet = new Set();
     // fetch(gpuUrl).then(response=>response.json()).then(function(data){
     //     for(let gpu of data){
@@ -274,22 +275,22 @@ function showScore(evaluateType, score){
 
 
 
-function getModel(partsType){
-    let brand = document.getElementById(partsType+"Brand");
-    let partsUrl = config.url + "?type=" + partsType;
-    let modelSet = new Set();
-    fetch(partsUrl).then(response=>response.json()).then(function(data){
-        for(parts of data){
-            if(brand.value == parts.Brand){modelSet.add(parts.Model);}
-        }
-        let model = document.getElementById(partsType + "Model");
-        model.innerHTML = `<option selected>Open this select menu</option>`;
-        for(const item of modelSet.keys()){
-            model.innerHTML += `<option value="${item}">${item}</option>`;
-        }
-        console.log(model);
-    })
-}
+// function getModel(partsType){
+//     let brand = document.getElementById(partsType+"Brand");
+//     let partsUrl = config.url + "?type=" + partsType;
+//     let modelSet = new Set();
+//     fetch(partsUrl).then(response=>response.json()).then(function(data){
+//         for(parts of data){
+//             if(brand.value == parts.Brand){modelSet.add(parts.Model);}
+//         }
+//         let model = document.getElementById(partsType + "Model");
+//         model.innerHTML = `<option selected>Open this select menu</option>`;
+//         for(const item of modelSet.keys()){
+//             model.innerHTML += `<option value="${item}">${item}</option>`;
+//         }
+//         console.log(model);
+//     })
+// }
 
 // let gpuurl2 = config.url + "?type=ssd";
 // let gpuBrandSet2 = new Set();
