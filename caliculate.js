@@ -1,5 +1,4 @@
-// ここからJavaScriptを記述してください。
-// fetch("https://api.recursionist.io/builder/computers");
+
 config = {
     url:"https://api.recursionist.io/builder/computers",
     cpuUrl: "https://api.recursionist.io/builder/computer?type=cpu",
@@ -26,16 +25,16 @@ function getModel(partsType){
         console.log(model);
     })
 }
-function getBench(partsType, model, ){
-    fetch(cpuUrl).then(response=>response.json()).then(function(allParts){
-        for(let cpu of allParts){
-            if(cpuModel.value == cpu.Model) {
-                cpuBenchmark = cpu.Benchmark;
-            }
-        }
-        return 0;
-    })
-}
+// function getBench(partsType, model, ){
+//     fetch(cpuUrl).then(response=>response.json()).then(function(allParts){
+//         for(let cpu of allParts){
+//             if(cpuModel.value == cpu.Model) {
+//                 cpuBenchmark = cpu.Benchmark;
+//             }
+//         }
+//         return 0;
+//     })
+// }
 
 //CPUBrandを選択したときに、Modelのセレクト候補を追加する実装
 let cpuBrand = document.getElementById("cpuBrand");
@@ -275,32 +274,3 @@ function showScore(evaluateType, score){
 
 
 
-// function getModel(partsType){
-//     let brand = document.getElementById(partsType+"Brand");
-//     let partsUrl = config.url + "?type=" + partsType;
-//     let modelSet = new Set();
-//     fetch(partsUrl).then(response=>response.json()).then(function(data){
-//         for(parts of data){
-//             if(brand.value == parts.Brand){modelSet.add(parts.Model);}
-//         }
-//         let model = document.getElementById(partsType + "Model");
-//         model.innerHTML = `<option selected>Open this select menu</option>`;
-//         for(const item of modelSet.keys()){
-//             model.innerHTML += `<option value="${item}">${item}</option>`;
-//         }
-//         console.log(model);
-//     })
-// }
-
-// let gpuurl2 = config.url + "?type=ssd";
-// let gpuBrandSet2 = new Set();
-// //BrandをセレクトしたときにModel情報を
-// fetch(gpuurl2).then(response=>response.json()).then(function(data){
-//     for(info of data){
-//         // console.log(info.Brand);
-//         gpuBrandSet2.add(info.Brand);
-//     }
-//     for (const item of gpuBrandSet2.keys()) {
-//         console.log(item);
-//     }
-// })
