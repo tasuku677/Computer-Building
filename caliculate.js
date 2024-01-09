@@ -2,25 +2,59 @@
 // fetch("https://api.recursionist.io/builder/computers");
 config = {
     url:"https://api.recursionist.io/builder/computers",
+    cpuUrl: "https://api.recursionist.io/builder/computer?type=cpu",
+    gpuUrl: "https://api.recursionist.io/builder/computer?type=gpu",
+    ramUrl: "https://api.recursionist.io/builder/computer?type=ram",
+    
 };
 let parent = document.getElementById("parent");
+
+
+function getModel(partsType, partsUrl){
+    let brand = document.getElementById(partsType+"Brand");
+    let modelSet = new Set();
+    fetch(partsUrl).then(response=>response.json()).then(function(allParts){
+        for(eachPart of allParts){
+            if(brand.value == eachPart.Brand){modelSet.add(eachPart.Model);}
+        }
+        let model = document.getElementById(partsType + "Model");
+        model.innerHTML = `<option selected>Open this select menu</option>`;
+        for(const item of modelSet.keys()){
+            model.innerHTML += `<option value="${item}">${item}</option>`;
+        }
+        console.log(model);
+    })
+}
+function getBench(partsType, model, ){
+    fetch(cpuUrl).then(response=>response.json()).then(function(allParts){
+        for(let cpu of allParts){
+            if(cpuModel.value == cpu.Model) {
+                cpuBenchmark = cpu.Benchmark;
+            }
+        }
+        return 0;
+    })
+}
 
 //CPUBrandを選択したときに、Modelのセレクト候補を追加する実装
 let cpuBrand = document.getElementById("cpuBrand");
 let cpuModel = document.getElementById("cpuModel");
 let cpuUrl = config.url + "?type=cpu";
 cpuBrand.addEventListener("change", function(){
-    let cpuModelSet = new Set();
-    fetch(cpuUrl).then(response=>response.json()).then(function(data){
-        for(let cpu of data){
-            if(cpuBrand.value == cpu.Brand){cpuModelSet.add(cpu.Model);}
-        }
-        cpuModel.innerHTML = `<option selected value="">Open this select menu</option>`;
-        for (const item of cpuModelSet.keys()) {
-            cpuModel.innerHTML += `<option value="${item}">${item}</option>`;
-        }
-    })
+    getModel("cpu", config.cpuUrl);
 })
+// cpuBrand.addEventListener("change", function(){
+//     let cpuModelSet = new Set();
+//     fetch(cpuUrl).then(response=>response.json()).then(function(data){
+//         for(let cpu of data){
+//             if(cpuBrand.value == cpu.Brand){cpuModelSet.add(cpu.Model);}
+//         }
+//         cpuModel.innerHTML = `<option selected value="">Open this select menu</option>`;
+//         for (const item of cpuModelSet.keys()) {
+//             cpuModel.innerHTML += `<option value="${item}">${item}</option>`;
+//         }
+//     })
+// })
 let cpuBenchmark = 0;
 cpuModel.addEventListener("change", function(){
     fetch(cpuUrl).then(response=>response.json()).then(function(data){
@@ -37,17 +71,17 @@ let gpuBrand = document.getElementById("gpuBrand");
 let gpuModel = document.getElementById("gpuModel");
 let gpuUrl = config.url + "?type=gpu";
 gpuBrand.addEventListener("change", function(){
-    // getModel("gpu");
-    let gpuModelSet = new Set();
-    fetch(gpuUrl).then(response=>response.json()).then(function(data){
-        for(let gpu of data){
-            if(gpuBrand.value == gpu.Brand){gpuModelSet.add(gpu.Model);}
-        }
-        gpuModel.innerHTML = `<option selected value="">Open this select menu</option>`;
-        for(const item of gpuModelSet.keys()){
-            gpuModel.innerHTML += `<option value="${item}">${item}</option>`; 
-        }
-    })
+    getModel("gpu", config.gpuUrl);
+    // let gpuModelSet = new Set();
+    // fetch(gpuUrl).then(response=>response.json()).then(function(data){
+    //     for(let gpu of data){
+    //         if(gpuBrand.value == gpu.Brand){gpuModelSet.add(gpu.Model);}
+    //     }
+    //     gpuModel.innerHTML = `<option selected value="">Open this select menu</option>`;
+    //     for(const item of gpuModelSet.keys()){
+    //         gpuModel.innerHTML += `<option value="${item}">${item}</option>`; 
+    //     }
+    // })
 })
 
 let gpuBenchmark = 0;
@@ -71,6 +105,7 @@ ramCount.addEventListener("change", function(){
 let ramModel = document.getElementById("ramModel");
 let ramUrl = config.url + "?type=ram";
 ramBrand.addEventListener("change", function(){
+    // getModel("ram", config.ramUrl);
     let ramModelSet = new Set();
     fetch(ramUrl).then(response=>response.json()).then(function(data){
         for(ram of data){
@@ -158,6 +193,7 @@ storageSize.addEventListener("change", function(){
 let storageModel = document.getElementById("storageModel");
 storageBrand.addEventListener("change", function(){
     let storageUrl = config.url + "?type=" + `${storageType.value}`;
+    // getModel("storage", storageUrl);
     let storageModelSet = new Set();
     fetch(storageUrl).then(response=>response.json()).then(function(data){
         for(let storage of data){
@@ -238,22 +274,22 @@ function showScore(evaluateType, score){
 
 
 
-// function getModel(partsType){
-//     let brand = document.getElementById(partsType+"Brand");
-//     let partsUrl = config.url + "?type=" + partsType;
-//     let modelSet = new Set();
-//     fetch(partsUrl).then(response=>response.json()).then(function(data){
-//         for(parts of data){
-//             if(brand.value == parts.Brand){modelSet.add(parts.Model);}
-//         }
-//         let model = document.getElementById(partsType + "Model");
-//         model.innerHTML = `<option selected>Open this select menu</option>`;
-//         for(const item of modelSet.keys()){
-//             model.innerHTML += `<option value="${item}">${item}</option>`;
-//         }
-//         console.log(model);
-//     })
-// }
+function getModel(partsType){
+    let brand = document.getElementById(partsType+"Brand");
+    let partsUrl = config.url + "?type=" + partsType;
+    let modelSet = new Set();
+    fetch(partsUrl).then(response=>response.json()).then(function(data){
+        for(parts of data){
+            if(brand.value == parts.Brand){modelSet.add(parts.Model);}
+        }
+        let model = document.getElementById(partsType + "Model");
+        model.innerHTML = `<option selected>Open this select menu</option>`;
+        for(const item of modelSet.keys()){
+            model.innerHTML += `<option value="${item}">${item}</option>`;
+        }
+        console.log(model);
+    })
+}
 
 // let gpuurl2 = config.url + "?type=ssd";
 // let gpuBrandSet2 = new Set();
