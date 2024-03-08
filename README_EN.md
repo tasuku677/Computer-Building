@@ -16,13 +16,13 @@ Through the combination of these technologies and methodologies, the project del
 - Interpret documentation for third-party Web APIs and implement the required functionaliti
 
 # Methodology Per Project
-(1) Utilize the JavaScript fetch function to retrieve server data from a Web API and parse it into objects.
-(2) Employ JavaScript Promises for asynchronous communication with the server.
-(3) Dynamically render document elements using JavaScript Document libraries based on the retrieved data.
-(4) Adopt both Promise error handling and try-catch blocks for error processing.
-(5) Utilize the JavaScript localStorage library for storing and managing client data.
-(6) Transform the web application into a Single Page Application (SPA) to achieve a seamless UI experience, ensuring data is initially rendered after JS load and dynamically updated via event listeners.
-(7) Investigate Web API endpoints, test different parameters, and verify the returned JSON format.
+- Utilize the JavaScript fetch function to retrieve server data from a Web API and parse it into objects.
+- Employ JavaScript Promises for asynchronous communication with the server.
+- Dynamically render document elements using JavaScript Document libraries based on the retrieved data.
+- Adopt both Promise error handling and try-catch blocks for error processing.
+- Utilize the JavaScript localStorage library for storing and managing client data.
+- Transform the web application into a Single Page Application (SPA) to achieve a seamless UI experience, ensuring data is initially rendered after JS load and dynamically updated via event listeners.
+- Investigate Web API endpoints, test different parameters, and verify the returned JSON format.
 
 
 
