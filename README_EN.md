@@ -19,8 +19,6 @@ Through the combination of these technologies and methodologies, the project del
 - Utilize the JavaScript fetch function to retrieve server data from a Web API and parse it into objects.
 - Employ JavaScript Promises for asynchronous communication with the server.
 - Dynamically render document elements using JavaScript Document libraries based on the retrieved data.
-- Adopt both Promise error handling and try-catch blocks for error processing.
-- Utilize the JavaScript localStorage library for storing and managing client data.
 - Transform the web application into a Single Page Application (SPA) to achieve a seamless UI experience, ensuring data is initially rendered after JS load and dynamically updated via event listeners.
 - Investigate Web API endpoints, test different parameters, and verify the returned JSON format.
 
