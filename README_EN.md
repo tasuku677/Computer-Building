@@ -23,6 +23,10 @@ Through the combination of these technologies and methodologies, the project del
 - Investigate Web API endpoints, test different parameters, and verify the returned JSON format.
 
 # How To Use
+## Install
+In order to use this application, you simply download the two files, 'index.html' and 'caluculate.js'.
+
+## Usage
 You will select parts from each input form.
 ![startscreen](https://github.com/tasuku677/Computer-Building/assets/78686862/47851f83-30e1-43e3-801c-3efa14feb38f)
 
